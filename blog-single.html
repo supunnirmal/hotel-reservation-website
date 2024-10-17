@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="image/favicon.png" type="image/png">
+        <title>Lotus Hotel</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="vendors/linericon/style.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+        <!-- main css -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <style>
+            .name{
+                font-family: sans-serif;
+                color: chocolate
+            }
+            .comment{
+                font-family: sans-serif;
+                color: chocolate;
+                margin-left: 20px
+            }
+        </style>
+        <script type="text/javascript">
+                
+                function insertComment() {
+                    var name = document.getElementById("name").value;
+                    var email = document.getElementById("email").value;
+                    var comment = document.getElementById("comment").value;
+
+                    var queryString = "name=" + name 
+                                        + "&email=" + email 
+                                        + "&comment=" + comment;
+
+                    if (window.XMLHttpRequest) {
+                        // code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp = new XMLHttpRequest();
+                    } else {
+                        // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            if(this.responseText == "1"){
+                                loadComments();
+                                document.getElementById("name").value="";
+                                document.getElementById("email").value="";
+                                document.getElementById("comment").value="";
+                                
+                            }
+                            else
+                                alert(this.responseText);
+                        }
+                    };
+
+                    //send data in POST method
+                    xmlhttp.open("POST","postComments.php",true);
+                    xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                    xmlhttp.send(queryString);
+                }
+        </script>
+    </head>
+    <body onload="loadComments()">
+        <!--================Header Area =================-->
+        <header class="header_area">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand logo_h" href="index.html"><img src="image/Logo.png" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="accomodation.html">Accomodation</a></li>
+                            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                            <li class="nav-item submenu dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
+                                </ul>
+                            </li> 
+                            <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                        </ul>
+                    </div> 
+                </nav>
+            </div>
+        </header>
+        <!--================Header Area =================-->
+        
+        <!--================Breadcrumb Area =================-->
+        <section class="breadcrumb_area blog_banner_two">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
+            <div class="container">
+                <div class="page-cover text-center">
+                    <h2 class="page-cover-tittle f_48">Blog Details page</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li class="active">Blog Details</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <!--================Breadcrumb Area =================-->
+        
+        <!--================Blog Area =================-->
+        <section class="blog_area single-post-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 posts-list">
+                        <div class="single-post row">
+                            <div class="col-lg-12">
+                                <div class="feature-img">
+                                    <img class="img-fluid" src="image/blog/blog5.jpg" alt="">
+                                </div>									
+                            </div>
+                            <div class="col-lg-3  col-md-3">
+                                <div class="blog_info text-right">
+                                    <div class="post_tag">
+                                        <a>Food,</a>
+                                        <a>Lifestyle</a>
+                                    </div>
+                                    <ul class="blog_meta list_style">
+                                        <li><a href="https://www.youtube.com/channel/UCKygRpISlqs5TufcT3JtRng" target="_blank" > Dale Philip <i class="lnr lnr-user"></i></a></li>
+                                            <li> 12 Sep, 2019 <i class="lnr lnr-calendar-full"></i></li>
+                                            <li> 1.2M Views <i class="lnr lnr-eye"></i></li>
+                                            <li><a href="https://www.youtube.com/watch?v=BBWQBTRt-dI" target="_blank" >06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                                    </ul>
+                                    <ul class="social-links">
+                                        <li><a href="https://www.facebook.com/Daleroxxu/"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="https://twitter.com/Daleroxxu?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a></li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 blog_details">
+                                <h2>Visited the Srilanka....</h2>
+                                <p class="excert">
+                                   I thought Sri Lanka to be one of the most beautiful countries I have ever been to. Wonderful climate, scenery and endless sites of interests. You could easily spen many many trips exploring the different towns and regions. Just be prepared. It's not the easiest country to travel around, especially now because of the ethnic tensions. I've travelled a lot in Asia, but found dealing with people in the tourist industry here immensely frustrating. We met many wonderful people in Sri Lanka, but with a few exceptions they were unconnected with the tourist trade.
+
+I have read some comments from other posters expressing this and having been there now I would have to concur. You  get ripped off and/ or hassled at every opportunity. The best thing to do is get into the country and run far far away from the tourist track. Try and go local as much as you can. Scams abound everywhere, and the "tourist" price, or whatever price quoted will always be about ten times what you should pay. Basically the industry is immature, in the "gouge the foreigners" mode, especially given the shrinkage caused by the simmering war. You can't blame the locals when even the government endorses this practice. I got the best experience by selecting the sutiable hotel that provide best facilities in my budget. The hotel I stayed inprovided endless opportunuties to experience the true SriLankan culture.
+                                </p>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="quotes">
+                                    The experience we get from Lotus Hotel is a timeless classic: a versatile, gives the power to heal, rejuvenate, inspire, and stimulate the senses. What the traditional home did in our history books, this hotel strives to do today.							
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <img class="img-fluid" src="image/blog/blog3.jpg" alt="">
+                                    </div>
+                                    <div class="col-6">
+                                        <img class="img-fluid" src="image/blog/blog2.jpg" alt="">
+                                    </div>	
+                                    <div class="col-lg-12 mt-25">
+                                      <section class="sample-text-area">
+												<div class="container">
+													<h3 class="text-heading title_color">Experience at Lotus Hotel</h3>
+													<p class="sample-text">
+													Everything at <b>Lotus Hotel</b> takes after the limitless ocean - the food, the ambience and the overall experience.The buffet restaurant stays open around the clock, serving the most delectable spread. Trust the pool bar, an indoor bar and an exquisite cellar to give your party a new high.
+													</p>
+												</div>
+											</section>										
+                                    </div>									
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navigation-area">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                                    <div class="thumb">
+                                        <a href="#"><img class="img-fluid" src="image/blog/prev.jpg" alt=""></a>
+                                    </div>
+                                    <div class="arrow">
+                                        <a href="#"><span class="lnr text-white lnr-arrow-left"></span></a>
+                                    </div>
+                                    <div class="detials">
+                                        <p>Prev Post</p>
+                                        <a href="#"><h4>Space The Final Frontier</h4></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                                    <div class="detials">
+                                        <p>Next Post</p>
+                                        <a href="#"><h4>Telescopes 101</h4></a>
+                                    </div>
+                                    <div class="arrow">
+                                        <a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
+                                    </div>
+                                    <div class="thumb">
+                                        <a href="#"><img class="img-fluid" src="image/blog/next.jpg" alt=""></a>
+                                    </div>										
+                                </div>									
+                            </div>
+                        </div>
+                        <div class="comments-area">
+                            <h4>Comments</h4>
+                            <div id="commentDiv">
+                            </div>
+                        </div>
+                        <div class="comment-form">
+                            <h4>Leave a Reply</h4>
+                            <form id="phpForm1" action="" method="post">
+                                <div class="form-group form-inline">
+                                  <div class="form-group col-lg-6 col-md-6 name">
+                                    <input type="text" class="form-control" id="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
+                                  </div>
+                                  <div class="form-group col-lg-6 col-md-6 email">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
+                                  </div>										
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control mb-10" rows="5" name="message" id="comment" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                                </div>
+                            <!--    <a href="#" onclick="insertComment()" class="primary-btn button_hover">Post Comment</a>	-->
+                             <!--    <button onclick="insertComment()" class="primary-btn button_hover">Post Comment</button>-->
+                                <input type="button" value="Post Comment" onclick="insertComment()" class="primary-btn button_hover">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="blog_right_sidebar">
+                            <h3 class="widget_title">Popular blogs</h3>
+                            <aside class="single_sidebar_widget author_widget">
+                                <img class="rounded-circle"  src="image/blog/jj.jpg" alt="">
+                                <h4>Johnny Jet</h4>
+                                <p>Senior blog writer</p>
+                                <div class="social_icon">
+                                    <a href="https://www.facebook.com/JohnnyJet747/"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://twitter.com/JohnnyJet?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a>                                   
+                                </div>
+                                <p> Sri Lanka is the most beautiful country on the earth, NO DOUBT.I travel to 20+ countries a year sharing my firsthand knowledge Srilanka was undoubtabaly one of the best memories I collected.It was truly a phenomenal time in the amazing Island.Lotus hotel which I booked online for my vacation elevated the whole magnificent adventure.  </p>
+                                <div class="br"></div>
+                            </aside>
+                            
+                            <aside class="single_sidebar_widget ads_widget">
+							  
+                                <a><img class="img-fluid" src="image/blog/blog7.jpg" alt=""></a>
+							   <div class="br"></div>							
+								<a><img class="img-fluid" src="image/blog/b5.jpg" alt=""></a>								
+                                <div class="br"></div>
+								<a><img class="img-fluid" src="image/blog/blog8.jpg" alt=""></a>
+								<div class="br"></div>							
+								<a><img class="img-fluid" src="image/blog/blog10.jpg" alt=""></a>								
+                                <div class="br"></div>
+                            </aside>
+                            <aside class="single_sidebar_widget post_category_widget">
+                                <h4 class="widget_title">Blog Catgories</h4>
+                                <ul class="list_style cat-list">
+                                    
+                                    <li>
+                                        <a href="https://theculturetrip.com/asia/sri-lanka/lifestyle/" class="d-flex justify-content-between">
+                                            <p>Lifestyle</p>
+                                       
+                                        </a>
+                                    </li>                                   
+                                    <li>
+                                        <a href="https://lanka.com/about/interests/arts-crafts/" class="d-flex justify-content-between">
+                                            <p>Art & Crafts</p>
+                                           
+                                    </li>
+                                    <li>
+                                        <a href="https://lanka.com/about/foods/" class="d-flex justify-content-between">
+                                            <p>Food</p>
+                                            
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://lanka.com/about/interests/wildlife-sri-lanka/" class="d-flex justify-content-between">
+                                            <p>Wildlife</p>
+                                            
+                                        </a>
+                                    </li>
+									 <li>
+                                        <a href="https://lanka.com/activities/adventure/" class="d-flex justify-content-between">
+                                            <p>Adventure</p>
+                                            
+                                        </a>
+                                    </li>
+									 <li>
+                                        <a href="https://lanka.com/about/attractions/heritage-culture-sri-lanka/" class="d-flex justify-content-between">
+                                            <p>Heritage & Culture</p>
+                                            
+                                        </a>
+                                    </li>
+									 <li>
+                                        <a href="https://lanka.com/hikkaduwa/" class="d-flex justify-content-between">
+                                            <p>Hikkaduwa</p>
+                                            
+                                        </a>
+                                    </li>
+                                    															
+                                </ul>
+                                <div class="br"></div>
+                            </aside>
+							<aside class="single_sidebar_widget ads_widget">
+							  
+                                <a><img class="img-fluid" src="image/blog/b3.jpg" alt=""></a>
+							   <div class="br"></div>							
+								<a><img class="img-fluid" src="image/blog/blog6.jpg" alt=""></a>								
+                                <div class="br"></div>
+								<a><img class="img-fluid" src="image/blog/blog9.jpg" alt=""></a>
+								<div class="br"></div>							
+								<a><img class="img-fluid" src="image/blog/blog1.jpg" alt=""></a>								
+                                <div class="br"></div>
+                            </aside>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================Blog Area =================-->
+        
+        <!--================ start footer Area  =================-->	
+<footer class="footer-area section_gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h6 class="footer_title">About Agency</h6>
+                            <p>Ranked among the best twenty hotels in the country.Holding a long legacy with the mixture of modern technology.</p>
+                        </div>
+                    </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h6 class="footer_title">Navigation Links</h6>
+                            <div class="row">
+                                <div class="col-4">
+                                    <ul class="list_style">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="accommodation.html">Features</a></li>
+                                        <li><a href="about.html#features">Services</a></li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="col-4">
+                                    <ul class="list_style">
+                                        <li><a href="gallery.html">Gallery</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>										
+                            </div>							
+                        </div>
+                    </div>							
+                   <div class="col-lg-3 col-md-6 col-sm-6">
+				   </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget instafeed">
+                            <h6 class="footer_title">InstaFeed</h6>
+                            <ul class="list_style instafeed d-flex flex-wrap">
+                                <li><img src="image/instagram/insta1.jpg" alt=""></li>
+                                <li><img src="image/instagram/insta2.jpg" alt=""></li>
+                                <li><img src="image/instagram/insta3.jpg" alt=""></li>
+                                <li><img src="image/instagram/insta4.jpg" alt=""></li>
+                                <li><img src="image/instagram/insta5.jpg" alt=""></li>
+                                <li><img src="image/instagram/insta6.jpg" alt=""></li>
+                                <li><img src="image/instagram/insta7.jpg" alt=""></li>
+                                <li><img src="image/instagram/insta8.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>						
+                </div>
+                <div class="border_line"></div>
+                <div class="row footer-bottom d-flex justify-content-between align-items-center ss">
+                    <div class="col-lg-8 col-sm-12 footer-text m-0">
+                        <h4>Contact us through</h4>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 footer-social margin">
+                        <a href="https://www.facebook.com/search/top/?q=Lotus%20Hotel"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/bkk_hotel_lotus?lang=en"><i class="fa fa-twitter"></i></a>                       
+                    </div>
+                </div>
+            </div>
+        </footer>
+		<!--================ End footer Area  =================-->
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+        <script src="vendors/nice-select/js/jquery.nice-select.js"></script>
+        <script src="js/mail-script.js"></script>
+        <script src="js/stellar.js"></script>
+        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+        <script src="js/custom.js"></script>
+		<script>
+		function loadComments(){
+                    if (window.XMLHttpRequest) {
+                        xmlhttp = new XMLHttpRequest();
+                    } else {
+                       xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var stObjs = JSON.parse(this.responseText);
+                            var str="";
+                                for(x in stObjs){
+                                    str = str + "<span class='name'>"+stObjs[x]['name']+"</span>" + "<br/>" +"<span class='comment'>"+ stObjs[x]['comment'] +"</span>"+"<br/><br/>";
+                                }
+                            document.getElementById("commentDiv").innerHTML =str;
+                        }
+                    };
+
+                    //send data in GET method
+                    xmlhttp.open("GET","selectComments.php",true);
+                    xmlhttp.send();	
+                }
+		</script>
+    </body>
+</html>
